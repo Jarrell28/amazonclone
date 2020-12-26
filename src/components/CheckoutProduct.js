@@ -2,8 +2,8 @@ import React from 'react';
 import '../css/CheckoutProduct.css';
 import { useStateValue } from '../StateProvider';
 
-function CheckoutProduct({ id, image, title, price, rating }) {
-    const [{ basket }, dispatch] = useStateValue();
+function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
+    const [{ }, dispatch] = useStateValue();
 
     const removeFromBasket = () => {
         dispatch({
@@ -14,7 +14,7 @@ function CheckoutProduct({ id, image, title, price, rating }) {
 
     return (
         <div className="checkoutProduct">
-            <img className="checkoutProduct__image" src={image} />
+            <img className="checkoutProduct__image" src={image} alt="Product" />
 
             <div className="checkoutProduct__info">
                 <p className="checkoutProduct__title">{title}</p>
@@ -22,11 +22,13 @@ function CheckoutProduct({ id, image, title, price, rating }) {
 
                 <div className="checkoutProduct__rating">
                     {Array(rating).fill().map(() => (
-                        <p><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/glowing-star_1f31f.png" alt="" /></p>
+                        <p><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/271/glowing-star_1f31f.png" alt="star" /></p>
                     ))}
                 </div>
 
-                <button onClick={removeFromBasket}>Remove from Basket</button>
+                {!hideButton && (
+                    <button onClick={removeFromBasket}>Remove from Basket</button>
+                )}
 
             </div>
         </div>
