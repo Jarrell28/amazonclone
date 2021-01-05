@@ -1,0 +1,28 @@
+.account {
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account__container {
+    width: 40%;
+    /* border: 1px solid black; */
+    margin-top: 30px;
+    max-width: 600px;
+}
+
+.account__container h1 {
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.account__doneButton {
+    margin-top: 20px;
+    margin-left: 10px;
+    background-color: #F3A847;
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}

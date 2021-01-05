@@ -48,7 +48,7 @@ function App() {
   return (
     // BEM
     <Router>
-      <div className="app">
+      <div className="App">
         <Switch>
           <Route path="/login">
             <Login />

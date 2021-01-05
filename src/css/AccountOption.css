@@ -1,0 +1,28 @@
+.accountOption {
+    padding: 20px;
+    border: 1px solid lightgray;
+    border-top: none;
+    padding-bottom: 30px;
+}
+
+.accountOption__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.accountInfo h3 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.accountInfo p {
+    font-size: 14px;
+}
+
+.accountEdit {
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
