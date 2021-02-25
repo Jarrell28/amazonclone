@@ -11,7 +11,7 @@ function Home() {
 
 
                 <div className="home__row">
-                    <Product id={1} title="A Promised Land" price={23.99} image="https://images-na.ssl-images-amazon.com/images/I/41L5qgUW2fL._SX327_BO1,204,203,200_.jpg" rating={5} />
+                    <Product id={1} title="2020 Apple MacBook Air with Apple M1 Chip" price={999.99} image="https://images-na.ssl-images-amazon.com/images/I/71jG%2Be7roXL._AC_SL1500_.jpg" rating={5} />
                     <Product id={2} title="Kids Against Maturity: Card Game for Kids and Families, Super Fun Hilarious for Family Party Game Night" price={29.99} image="https://images-na.ssl-images-amazon.com/images/I/71-G22YUeHL._AC_SL1500_.jpg" rating={3} />
 
                 </div>
@@ -23,7 +23,7 @@ function Home() {
                 </div>
 
                 <div className="home__row">
-                    <Product title="YI Security Home Camera Baby Monitor, 1080p WiFi Smart Wireless Indoor Nanny IP Cam with Night Vision, 2-Way Audio, Motion Detection, Phone App, Pet Cat Dog Cam - Works with Alexa and Google" price={17.99} image="https://images-na.ssl-images-amazon.com/images/I/518Ngm46uuL._AC_SL1500_.jpg" rating={5} />
+                    <Product id={6} title="YI Security Home Camera Baby Monitor, 1080p WiFi Smart Wireless Indoor Nanny IP Cam with Night Vision, 2-Way Audio, Motion Detection, Phone App, Pet Cat Dog Cam - Works with Alexa and Google" price={17.99} image="https://images-na.ssl-images-amazon.com/images/I/518Ngm46uuL._AC_SL1500_.jpg" rating={5} />
 
                 </div>
             </div>

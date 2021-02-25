@@ -12,7 +12,7 @@ function Header() {
     const [toggleMenu, setToggleMenu] = useState(false);
 
     useEffect(() => {
-        console.log(toggleMenu);
+        // console.log(toggleMenu);
     }, [toggleMenu])
 
     const signOut = () => {
@@ -36,7 +36,7 @@ function Header() {
             </Link>
             <div className="header__search">
 
-                <input className="header__searchInput" type="text" />
+                <input className="header__searchInput" type="text" autoComplete="off" />
                 <SearchIcon className='header__searchIcon' />
             </div>
 
@@ -64,7 +64,7 @@ function Header() {
                         <div className={toggleMenu ? "header__dropdown active" : "header__dropdown"} onMouseLeave={closeSubMenu} >
                             <ul>
                                 <li><Link to="/account">Your Account</Link></li>
-                                <li onClick={signOut}><a className="header__signout" >Sign out</a></li>
+                                <li onClick={signOut}><a className="header__signout" href="#">Sign out</a></li>
                             </ul>
                         </div>
                     </div>

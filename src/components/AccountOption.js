@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import '../css/AccountOption.css';
 
 import { auth } from '../firebase';
 import { useStateValue } from '../StateProvider';
 
 function AccountOption({ title, value, style }) {
-    const [{ user }, dispatch] = useStateValue();
+    const [{ }, dispatch] = useStateValue();
     const [update, setUpdate] = useState(false);
     const [input, setInput] = useState(value);
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const history = useHistory();
 
     const inputRef = React.createRef();
 
@@ -35,6 +40,7 @@ function AccountOption({ title, value, style }) {
                 } else {
                     alert("Please insert Name value");
                 }
+                break;
 
             case "Email":
                 if (input) {
@@ -51,23 +57,28 @@ function AccountOption({ title, value, style }) {
                 } else {
                     alert("Please insert valid Email")
                 }
+                break;
 
-            case "Phone Number":
-                if (input) {
-                    auth.currentUser.updatePhoneNumber(input)
+            case "Password":
+                if (password === confirmPassword) {
+                    auth.currentUser.updatePassword(password)
                         .then(() => {
-                            dispatch({
-                                type: 'SET_USER',
-                                user: auth.currentUser
-                            })
                             setUpdate(false);
 
-                            alert("Successfully updated Phone Number");
+                            alert("Successfully updated Password");
 
+                        }).catch(err => {
+                            if (err.code === "auth/requires-recent-login") {
+                                alert("Must sign in again to update password");
+                                history.push('/login');
+                            } else {
+                                alert(err.message);
+                            }
                         })
                 } else {
-                    alert("Please insert valid Phone Number")
+                    alert("Passwords must match!")
                 }
+                break;
 
             default:
                 break;
@@ -84,7 +95,15 @@ function AccountOption({ title, value, style }) {
                     {!update ?
                         <p>{value}</p>
                         :
-                        <input type="text" value={input} className="accountOption__input" onChange={(e) => { setInput(e.target.value) }} ref={inputRef} />
+                        title === "Password" ?
+
+                            <div>
+                                <input type="password" value={password} className="accountOption__input" onChange={(e) => { setPassword(e.target.value) }} ref={inputRef} placeholder="New Password" />
+
+                                <input type="password" value={confirmPassword} className="accountOption__input" onChange={(e) => { setConfirmPassword(e.target.value) }} placeholder="Confirm Password" />
+                            </div>
+                            :
+                            <input type="text" value={input} className="accountOption__input" onChange={(e) => { setInput(e.target.value) }} ref={inputRef} />
                     }
                 </div>
 

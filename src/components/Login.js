@@ -9,12 +9,12 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (auth.currentUser) {
-            history.push("/");
-        }
-    }, [history])
+    //     if (auth.currentUser) {
+    //         history.push("/");
+    //     }
+    // }, [history])
 
     const signIn = e => {
         e.preventDefault();

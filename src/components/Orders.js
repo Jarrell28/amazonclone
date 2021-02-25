@@ -3,10 +3,14 @@ import '../css/Orders.css';
 import { useStateValue } from '../StateProvider';
 import { db } from '../firebase';
 import Order from './Order';
+import Login from './Login';
+import { useHistory } from 'react-router-dom';
 
 function Orders() {
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ user }, dispatch] = useStateValue();
     const [orders, setOrders] = useState([]);
+
+    const history = useHistory();
 
     useEffect(() => {
         if (user) {
@@ -22,6 +26,8 @@ function Orders() {
         }
 
     }, []);
+
+    if (!user) history.push('/login');
 
     return (
         <div className="orders">
