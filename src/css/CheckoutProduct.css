@@ -14,6 +14,9 @@
     /* margin-top: 10px; */
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .checkoutProduct__title {
